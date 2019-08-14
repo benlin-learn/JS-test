@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JQ/JS Animation</title>
+    <style>
+      #rect {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: 0;
+        left: 0;
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div id="rect"></div>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <script>
+      (function() {
+        // document.querySelector("#rect").addEventListener("click", clickHandler);
+        // function clickHandler() {
+        //   for (let i = 0; i <= 100; i++) {
+            
+        //     // 線型動畫
+
+        //     // requestAnimationFrame
+        //     setTimeout(() => {
+              
+        //       this.style.left = 800/100*i +'px';
+        //     }, i*10);
+        //   }
+        // }
+        
+        $('#rect').on('click', clickHandler)
+        function clickHandler(){
+          // $(this).css({
+          //   top: 800,
+          //   left: 800+'px'
+          // })
+          $(this).animate({
+            top: 300,
+            left: 800+'px'
+          }, {
+            duration:2000,
+            specialEasing:{
+              top:'linear',
+              left:'swing'
+            }
+          }) //預設400ms
+          .animate({
+            top: 0,
+            left: 0
+          }, {
+            duration:2000,
+            specialEasing:{
+              top:'swing',
+              left:'linear'
+            }
+          }) //預設400ms
+          
+        }
+
+      })();
+    </script>
+  </body>
+</html>
